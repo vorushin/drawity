@@ -14,9 +14,16 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Drawity",
-  description: "Turn-by-turn drawing game",
-};
+  title: 'Drawity - Draw with Friends',
+  description: 'A fun drawing game to play with friends. Take turns drawing and sharing your creativity!',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+}
 
 export default function RootLayout({
   children,
