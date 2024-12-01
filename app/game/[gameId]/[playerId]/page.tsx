@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 
 type Tool = 'pen' | 'eraser';
 type GameState = {
@@ -202,9 +203,14 @@ export default function GamePage() {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black">
       <div className="w-full max-w-2xl mx-auto p-4 sm:p-8 space-y-6">
         <header className="text-center space-y-3">
-          <h1 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-            Drawity
-          </h1>
+          <Link 
+            href="/"
+            className="inline-block hover:opacity-80 transition-opacity"
+          >
+            <h1 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              Drawity
+            </h1>
+          </Link>
           <div className="flex items-center justify-center gap-2">
             <svg className="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
