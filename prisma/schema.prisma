@@ -14,4 +14,16 @@ model Game {
   status    String   @default("waiting") // waiting, active, completed
   player1Id String   @default(cuid())
   player2Id String   @default(cuid())
+  currentPlayerId String // tracks whose turn it is
+  canvasData String? // stores the base64 canvas data
+  moves     Move[]
+}
+
+model Move {
+  id        String   @id @default(cuid())
+  gameId    String
+  playerId  String
+  canvasData String  // stores the base64 canvas data
+  createdAt DateTime @default(now())
+  game      Game     @relation(fields: [gameId], references: [id])
 } 

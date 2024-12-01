@@ -4,7 +4,17 @@ import { prisma } from '@/lib/db'
 export async function POST() {
   try {
     const game = await prisma.game.create({
-      data: {} // Prisma will auto-generate IDs for us
+      data: {
+        currentPlayerId: '', // Will be set to player1Id after creation
+      }
+    })
+
+    // Update the game with the currentPlayerId set to player1Id
+    await prisma.game.update({
+      where: { id: game.id },
+      data: {
+        currentPlayerId: game.player1Id,
+      },
     })
 
     return NextResponse.json({

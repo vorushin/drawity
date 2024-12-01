@@ -5,6 +5,7 @@ export async function GET(
   request: Request,
   { params }: { params: { gameId: string } }
 ) {
+  await params;
   const gameId = await params.gameId;
 
   try {
@@ -25,6 +26,8 @@ export async function GET(
       gameId: game.id,
       player1Id: game.player1Id,
       player2Id: game.player2Id,
+      currentPlayerId: game.currentPlayerId,
+      canvasData: game.canvasData,
       status: game.status,
     });
   } catch (error) {
