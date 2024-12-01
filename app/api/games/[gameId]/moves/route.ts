@@ -1,10 +1,8 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 
-export async function POST(
-  request: Request,
-  { params }: { params: { gameId: string } }
-) {
+export async function POST(request: Request, props: { params: Promise<{ gameId: string }> }) {
+  const params = await props.params;
   try {
     const { playerId, canvasData } = await request.json();
     await params;

@@ -1,11 +1,8 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 
-export async function GET(
-  request: Request,
-  { params }: { params: { gameId: string } }
-) {
-  await params;
+export async function GET(request: Request, props: { params: Promise<{ gameId: string }> }) {
+  const params = await props.params;
   const gameId = await params.gameId;
 
   try {
