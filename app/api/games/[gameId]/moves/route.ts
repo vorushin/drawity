@@ -5,6 +5,10 @@ export async function POST(request: Request, props: { params: Promise<{ gameId: 
   const params = await props.params;
   try {
     const { playerId, canvasData } = await request.json();
+    
+    // Debug received data
+    console.log(`API: Received move from player ${playerId}, canvas data length: ${canvasData.length}`);
+    
     await params;
 
     // Create the move
